@@ -1,3 +1,5 @@
+Sample Df code using spark:
+---------------------------
 package org.inceptez.spark.sql
 import org.apache.spark.sql._;
 
