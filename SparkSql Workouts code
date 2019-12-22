@@ -1,0 +1,15 @@
+package org.inceptez.spark.sql
+import org.apache.spark.sql._;
+
+object sparkapp {
+  def main(args: Array[String]): Unit = {
+    val spark=SparkSession.builder().appName("Sample sql app").master("local[*]")
+.config("hive.metastore.uris","thrift://localhost:9083")
+.config("spark.sql.warehouse.dir","hdfs://localhost:54310/user/hive/warehouse")
+.enableHiveSupport().getOrCreate();
+ println("test")
+ spark.sql("show tables").show
+ val df=spark.sql("select * from txnrecords")
+ df.show
+  }
+}
